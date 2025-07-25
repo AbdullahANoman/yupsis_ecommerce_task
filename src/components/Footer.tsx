@@ -1,72 +1,68 @@
+import React from 'react';
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">ShopEase</h3>
-            <p className="text-gray-400">
-              Your one-stop shop for all your needs.
+    <footer className="pt-10 text-white font-semibold font-sans">
+      <div className="">
+        <div className="   bg-[#00C4CC]">
+          <div className='container mx-auto flex flex-wrap p-8'>
+            {/* About Us Section */}
+          <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <h3 className="text-lg font-medium mb-5">About Us</h3>
+            <p className="text-sm leading-relaxed">
+              We are a team of designers and developers that create high quality workpieces, Shopify, Opencast
             </p>
           </div>
-          <div>
-            <h4 className="font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Products
-                </a>
-              </li>
+          
+          {/* Contact Us Section */}
+          <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <h3 className="text-lg font-medium mb-5">Contact Us</h3>
+            <address className="not-italic text-sm leading-relaxed">
+              Your address goes here<br />
+              example@example.com<br />
+              <br />
+              123 123 456 789
+            </address>
+          </div>
+          
+          {/* Information Section */}
+          <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <h3 className="text-lg font-medium mb-5">Information</h3>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#" className="hover:underline">Terms & Conditions</a></li>
+              <li><a href="#" className="hover:underline">Payment Method</a></li>
+              <li><a href="#" className="hover:underline">Product Warranty</a></li>
+              <li><a href="#" className="hover:underline">Return Products</a></li>
+              <li><a href="#" className="hover:underline">Payment Security</a></li>
             </ul>
           </div>
-          <div>
-            <h4 className="font-bold mb-4">Customer Service</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Returns
-                </a>
-              </li>
-            </ul>
+          
+          {/* Newsletter Section */}
+          <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+            <h3 className="text-lg font-medium mb-5">Signup for newsletter</h3>
+            <form className="flex mb-4">
+              <input 
+                type="email" 
+                placeholder="email@example.com" 
+                className="px-3 py-2 border border-gray-300 flex-grow focus:outline-none focus:ring-1 focus:ring-gray-400" 
+              />
+              <button 
+                type="submit" 
+                className="bg-gray-800 text-white px-4 py-2 hover:bg-gray-700 transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+            <p className="text-xs leading-snug">
+              Join over 1,000 people who get free and fresh content delivered automatically each time we publish.
+            </p>
           </div>
-          <div>
-            <h4 className="font-bold mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} ShopEase. All rights reserved.</p>
+        
+        {/* Copyright Section */}
+        <div className="bg-[#FF99CC] p-7  text-center text-xs">
+          <p>Copyright © {new Date().getFullYear()} HotThemes | Built with Tryps by HotThemes</p>
         </div>
       </div>
     </footer>

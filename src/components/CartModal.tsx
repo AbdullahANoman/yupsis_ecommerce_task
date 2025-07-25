@@ -15,7 +15,7 @@ const CartModal = () => {
   if (!isCartOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-end">
+    <div className="fixed inset-0  bg-white z-50 flex justify-end">
       <div className="bg-white w-full max-w-md h-full overflow-y-auto">
         <div className="p-4">
           <div className="flex justify-between items-center mb-4">
