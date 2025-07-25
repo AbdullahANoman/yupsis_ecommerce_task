@@ -46,7 +46,7 @@ const CartContent = ({
                   <div className="flex items-center mt-2">
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      className="px-2 py-1 bg-gray-200 rounded-l"
+                      className="cursor-pointer px-2 py-1 bg-gray-200 rounded-l"
                     >
                       -
                     </button>
@@ -55,13 +55,13 @@ const CartContent = ({
                     </span>
                     <button
                       onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      className="px-2 py-1 bg-gray-200 rounded-r"
+                      className="px-2 cursor-pointer py-1 bg-gray-200 rounded-r"
                     >
                       +
                     </button>
                     <button
                       onClick={() => removeFromCart(item.id)}
-                      className="ml-4 "
+                      className="ml-4 cursor-pointer"
                     >
                       <AiFillDelete  size={20}/>
                     </button>

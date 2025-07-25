@@ -1,6 +1,12 @@
+'use client';
+
 import { SheetClose } from "@/components/ui/sheet";
-import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { CheckoutFormData, checkoutSchema } from "./CheckOutFormValidation";
+
+
 
 const CheckoutForm = ({ 
   onBack, 
@@ -9,26 +15,19 @@ const CheckoutForm = ({
   onBack: () => void,
   totalPrice: number
 }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
-    paymentMethod: 'credit'
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CheckoutFormData>({
+    resolver: zodResolver(checkoutSchema),
+    defaultValues: {
+      paymentMethod: 'credit'
+    }
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Here you would typically send the data to your backend
+  const onSubmit = (data: CheckoutFormData) => {
+    console.log('Form submitted:', data);
   };
 
   return (
@@ -44,20 +43,21 @@ const CheckoutForm = ({
         <SheetClose className="text-gray-500 hover:text-gray-700"/>
       </div>
       <h2 className="text-xl font-bold mb-6">Checkout</h2>
-      <form onSubmit={handleSubmit} className="flex-grow overflow-y-auto">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex-grow overflow-y-auto">
         <div className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Full Name
             </label>
             <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              required
+              {...register('name')}
+              className={`w-full px-3 py-2 border rounded-md ${
+                errors.name ? 'border-red-500' : 'border-gray-300'
+              }`}
             />
+            {errors.name && (
+              <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+            )}
           </div>
 
           <div>
@@ -65,13 +65,14 @@ const CheckoutForm = ({
               Email
             </label>
             <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
-              required
+              {...register('email')}
+              className={`w-full px-3 py-2 border rounded-md ${
+                errors.email ? 'border-red-500' : 'border-gray-300'
+              }`}
             />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+            )}
           </div>
 
           <div>
@@ -79,13 +80,15 @@ const CheckoutForm = ({
               Shipping Address
             </label>
             <textarea
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              {...register('address')}
+              className={`w-full px-3 py-2 border rounded-md ${
+                errors.address ? 'border-red-500' : 'border-gray-300'
+              }`}
               rows={3}
-              required
             />
+            {errors.address && (
+              <p className="mt-1 text-sm text-red-600">{errors.address.message}</p>
+            )}
           </div>
 
           <div>
@@ -96,10 +99,8 @@ const CheckoutForm = ({
               <label className="flex items-center">
                 <input
                   type="radio"
-                  name="paymentMethod"
                   value="credit"
-                  checked={formData.paymentMethod === 'credit'}
-                  onChange={handleChange}
+                  {...register('paymentMethod')}
                   className="mr-2"
                 />
                 Credit Card
@@ -107,10 +108,8 @@ const CheckoutForm = ({
               <label className="flex items-center">
                 <input
                   type="radio"
-                  name="paymentMethod"
                   value="paypal"
-                  checked={formData.paymentMethod === 'paypal'}
-                  onChange={handleChange}
+                  {...register('paymentMethod')}
                   className="mr-2"
                 />
                 PayPal
@@ -136,4 +135,4 @@ const CheckoutForm = ({
   );
 };
 
-export default CheckoutForm
+export default CheckoutForm;

@@ -1,4 +1,6 @@
 // types.ts
+
+
 export interface Product {
   id: number;
   name: string;
@@ -9,6 +11,17 @@ export interface Product {
   ageRange: string;
   rating: number;
   stock: number;
+}
+
+export interface ProductResponse {
+  data:{
+    meta:{
+    page:number,
+  },
+  result: Product[],
+  message: string,
+  success: boolean
+  }
 }
 
 export interface CartItem extends Product {

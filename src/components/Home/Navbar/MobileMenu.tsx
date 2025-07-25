@@ -5,9 +5,6 @@ import { useEffect } from "react";
 
 const menu = [
   { name: "Home", path: "/" },
-  { name: "All Products", path: "/products" },
-  { name: "About Us", path: "/about" },
-  { name: "Contact", path: "/contact" },
 ];
 
 const MobileMenu = ({

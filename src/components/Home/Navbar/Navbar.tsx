@@ -12,9 +12,6 @@ import Image from "next/image";
 import Logo from "../../../assets/icons/logo.png";
 const menu = [
   { name: "Home", path: "/" },
-  { name: "All Products", path: "/products" },
-  { name: "About Us", path: "/about" },
-  {name: "Contact", path: "/contact" },
 ];
 
 const MobileMenu = ({
@@ -113,9 +110,6 @@ const Navbar = () => {
             {/* Center - Desktop Navigation */}
             <div className="hidden md:flex space-x-6">
               <Link href="/" className="hover:text-secondary">Home</Link>
-              <Link href="/products" className="hover:text-secondary">Products</Link>
-              <Link href="/about" className="hover:text-secondary">About</Link>
-              <Link href="/contact" className="hover:text-secondary">Contact</Link>
             </div>
 
             {/* Right Side - Cart and Mobile Menu */}

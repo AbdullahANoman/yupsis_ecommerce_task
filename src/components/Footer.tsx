@@ -1,5 +1,7 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-
+import Logo from "../assets/icons/logo.png";
 const Footer = () => {
   return (
     <footer className="pt-10 text-white font-semibold font-sans">
@@ -8,6 +10,17 @@ const Footer = () => {
           <div className='container mx-auto flex flex-wrap p-8'>
             {/* About Us Section */}
           <div className="w-full md:w-1/2 lg:w-1/4 px-4 mb-8">
+          <Link href={'/'} >
+              <div className="flex gap-2 items-center py-4">
+                <div>
+                  <Image src={Logo} className="relative h-12 w-12" alt="logo" />
+                </div>
+                <p className="text-xl font-bold">
+                  <span className="text-[#FF6A98]">Toy</span>
+                  <span className="text-[#FF6A98]">Tutors</span>
+                </p>
+              </div>
+            </Link>
             <h3 className="text-lg font-medium mb-5">About Us</h3>
             <p className="text-sm leading-relaxed">
               We are a team of designers and developers that create high quality workpieces, Shopify, Opencast
