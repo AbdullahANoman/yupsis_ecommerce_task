@@ -29,10 +29,10 @@ A modern e-commerce platform for educational toys, featuring a Next.js frontend 
 
 ## Project Structure
 
-toytutors-ecommerce/
-├── app/ # Next.js app directory
-├── components/ # Reusable components
-├── lib/ # Utility functions
-├── public/ # Static assets
-├── styles/ # Global styles
-├── types/ # TypeScript types
+**toytutors-ecommerce:**
+- app/ # Next.js app directory
+- components/ # Reusable components
+- lib/ # Utility functions
+- public/ # Static assets
+- styles/ # Global styles
+- types/ # TypeScript types
